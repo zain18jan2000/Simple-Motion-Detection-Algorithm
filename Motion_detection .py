@@ -36,7 +36,7 @@ while True:
         # If it is greater than 25, we’ll set it to white (i.e. foreground)
         _,thresh = cv2.threshold(frameDelta,25,255,cv2.THRESH_BINARY)
 
-        # creating a kernel of 4*4
+        # creating a kernel of 7x7
         kernel = np.ones((7, 7), np.uint8)
         # applying errosion to avoid any small motion in video
         thresh = cv2.erode(thresh, kernel)

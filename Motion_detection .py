@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # load the video file
-cap = cv2.VideoCapture('output.mp4')
+cap = cv2.VideoCapture('video.mp4')
 
 # setting the background as None in the beginning
 bgframe = None
@@ -38,9 +38,8 @@ while True:
 
         # creating a kernel of 7x7
         kernel = np.ones((7, 7), np.uint8)
-        # applying errosion to avoid any small motion in video
-        thresh = cv2.erode(thresh, kernel)
-        # dilating our image
+        
+        # dilating the frame
         thresh = cv2.dilate(thresh, None, iterations=6)
         # finding the contours
         contours, heirarchy = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
